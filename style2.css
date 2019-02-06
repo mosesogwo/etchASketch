@@ -1,0 +1,23 @@
+#container {
+    height: 600px;
+    width: 600px;
+    margin: auto;
+    background: white;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+.cell {
+    display: inline-block;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    
+}
+
+.over {
+background: tomato;
+
+}
+

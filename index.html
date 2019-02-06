@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Etch-A-Sketch</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <button id="btn">New Square</button>
+        
+        <div id="container">
+            
+        </div>
+        
+        
+   
+        
+        
+        <script>
+            const btn = document.querySelector("#btn");
+            btn.addEventListener('click', newDiv);
+
+            function newDiv() {
+                let n = 16;
+                for (i=1; i<=n; i++) {
+                var containerDiv = document.querySelector('#container');
+                var smallDiv = document.createElement('div');
+                smallDiv.classList.add('square');
+                let h = (containerDiv.height/n*100);
+                smallDiv.setAttribute('style', 'height: 37.5px');
+                containerDiv.appendChild(smallDiv);
+                smallDiv.onmouseenter = () => smallDiv.classList.add('squaremoved');
+            }
+            }
+
+                
+            
+        
+        
+        </script>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+#container {
+    height: 600px;
+    width: 600px;
+    margin: auto;
+    background: white;
+}
+
+.square {
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    /* height: 37.5px; */
+    width: 37.5px;
+    display: inline-block;
+}
+
+.squaremoved{
+background: tomato;
+
+}
+
