@@ -1,41 +1,73 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Etch-A-Sketch</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body>
-        <button id="btn">New Square</button>
-        
-        <div id="container">
-            
-        </div>
-        
-        
+
+<head>
+    <title>Etch-A-Sketch</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+    <h2>Etch-a-Sketch</h2>
+
+    <div id="buttons">
+        <button id="btn">New Grid</button>
+        <button id="reset">Reset Grid</button>
+    </div>
+
+    <div id="container"></div>
    
-        
-        
-        <script>
-            const btn = document.querySelector("#btn");
-            btn.addEventListener('click', newDiv);
 
-            function newDiv() {
-                let n = 16;
-                for (i=1; i<=n; i++) {
-                var containerDiv = document.querySelector('#container');
-                var smallDiv = document.createElement('div');
-                smallDiv.classList.add('square');
-                let h = (containerDiv.height/n*100);
-                smallDiv.setAttribute('style', 'height: 37.5px');
-                containerDiv.appendChild(smallDiv);
-                smallDiv.onmouseenter = () => smallDiv.classList.add('squaremoved');
-            }
-            }
+<script>
 
-                
+        const newbtn = document.querySelector("#btn");
+        newbtn.addEventListener('click', newGrid);
+
+        const resetbtn = document.querySelector("#reset");
+        resetbtn.addEventListener('click', clearGrid);
+
+
+        function clearGrid() {
+            while (container.firstChild) {
+                container.removeChild(container.firstChild);
+            }
+        }
+
+        function newGrid() {
+            clearGrid();
+
+            let cheight = document.getElementById('container').offsetHeight;
+            let cwidth = document.getElementById('container').offsetWidth;
+
+            let n = prompt('Enter number of squares per side');
+            let numSquares = n * n;
+            let i = 1;
             
+
+            while (i <= numSquares) {
+                let boxheight = ((cheight)/n);
+                let boxwidth = ((cwidth)/n);
+                console.log (cheight, cwidth, boxheight);
+                let container = document.querySelector('#container');
+                let div = document.createElement('div');
+                div.classList.add('cell');
+                div.style.cssFloat = "left";
+                div.style.height = boxheight + 'px';
+                div.style.width = boxwidth + 'px';
+                div.onmouseover = () => div.style.background = randomColor();
+                container.appendChild(div);
+                i++;
+                }
+            }
         
-        
-        </script>
-    </body>
+
+        function randomColor() {
+            var randColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+            return randColor;
+
+        }
+
+    </script>
+
+</body>
 </html>
